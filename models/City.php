@@ -10,9 +10,9 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property int $population
- * @property string $contry_code
+ * @property string $country_code
  *
- * @property Country $contryCode
+ * @property Country $countryCode
  */
 class City extends \yii\db\ActiveRecord
 {
@@ -30,11 +30,11 @@ class City extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'population', 'contry_code'], 'required'],
+            [['name', 'population', 'country_code'], 'required'],
             [['population'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['contry_code'], 'string', 'max' => 2],
-            [['contry_code'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['contry_code' => 'code']],
+            [['country_code'], 'string', 'max' => 2],
+            [['country_code'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['country_code' => 'code']],
         ];
     }
 
@@ -47,15 +47,15 @@ class City extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'population' => 'Population',
-            'contry_code' => 'Contry Code',
+            'country_code' => 'Contry Code',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getContryCode()
+    public function getcountryCode()
     {
-        return $this->hasOne(Country::className(), ['code' => 'contry_code']);
+        return $this->hasOne(Country::className(), ['code' => 'country_code']);
     }
 }

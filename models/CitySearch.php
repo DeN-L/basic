@@ -18,7 +18,7 @@ class CitySearch extends City
     {
         return [
             [['id', 'population'], 'integer'],
-            [['name', 'contry_code'], 'safe'],
+            [['name', 'country_code'], 'safe'],
         ];
     }
 
@@ -63,7 +63,7 @@ class CitySearch extends City
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'contry_code', $this->contry_code]);
+            ->andFilterWhere(['like', 'country_code', $this->country_code]);
 
         return $dataProvider;
     }

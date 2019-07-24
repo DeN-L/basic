@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'population')->textInput() ?>
 
-    <?= $form->field($model, 'contry_code')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'country_code')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
