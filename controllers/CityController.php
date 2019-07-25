@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Country;
 use Yii;
 use app\models\City;
 use app\models\CitySearch;
+use yii\db\ActiveRecord;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -14,6 +16,16 @@ use yii\filters\VerbFilter;
  */
 class CityController extends Controller
 {
+    /**
+     * Returns array of all countries which are available.
+     *
+     * @return array|ActiveRecord[]
+     */
+    private function countries()
+    {
+        return Country::find()->all();
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -72,6 +84,7 @@ class CityController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'countries' => $this->countries(),
         ]);
     }
 
@@ -92,6 +105,7 @@ class CityController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'countries' => $this->countries(),
         ]);
     }
 
