@@ -253,6 +253,7 @@ desired effect
                         ["label" => "Login", "url" => ["site/login"], "icon" => "files-o"],
                         ["label" => "Country", "url" => ["country/"], "icon" => "files-o"],
                         ["label" => "City", "url" => ["city/"], "icon" => "files-o"],
+                        ["label" => "Hello", "url" => ["site/hello"], "icon" => "bus"],
                         ["label" => "Error page", "url" => ["site/error-page"], "icon" => "close"],
                         [
                             "label" => "Widgets",

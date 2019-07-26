@@ -1,7 +1,9 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $text_msg string */
 
+use app\components\HelloWidget;
 use yii\helpers\Html;
 
 $this->title = 'Hello';
@@ -13,5 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::encode($text_msg) ?>
     </p>
+
+    <?= HelloWidget::widget(['message' => 'Good morning', 'url' => 'http://yandex.ru']) ?>
 
 </div>
