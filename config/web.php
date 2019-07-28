@@ -55,6 +55,11 @@ $config = [
 
     ],
     'params' => $params,
+    'modules' => [
+        'categories' => [
+            'class' => 'app\modules\categories\Category',
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {

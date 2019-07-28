@@ -254,6 +254,7 @@ desired effect
                         ["label" => "Country", "url" => ["country/"], "icon" => "files-o"],
                         ["label" => "City", "url" => ["city/"], "icon" => "files-o"],
                         ["label" => "Hello", "url" => ["site/hello"], "icon" => "bus"],
+                        ["label" => "Categories", "url" => ["categories/category"], "icon" => "phone"],
                         ["label" => "Error page", "url" => ["site/error-page"], "icon" => "close"],
                         [
                             "label" => "Widgets",
