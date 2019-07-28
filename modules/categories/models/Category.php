@@ -47,4 +47,12 @@ class Category extends \yii\db\ActiveRecord
             'parent_category' => 'Parent Category',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getparent()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'parent_category']);
+    }
 }
