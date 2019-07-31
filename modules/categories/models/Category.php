@@ -10,7 +10,7 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property string $description
- * @property int $parent_category
+ * @property int $parent_id
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -30,7 +30,7 @@ class Category extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['description'], 'string'],
-            [['parent_category'], 'integer'],
+            [['parent_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -44,7 +44,7 @@ class Category extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'description' => 'Description',
-            'parent_category' => 'Parent Category',
+            'parent_id' => 'Parent Category',
         ];
     }
 
@@ -53,6 +53,6 @@ class Category extends \yii\db\ActiveRecord
      */
     public function getparent()
     {
-        return $this->hasOne(Category::className(), ['id' => 'parent_category']);
+        return $this->hasOne(Category::className(), ['id' => 'parent_id']);
     }
 }

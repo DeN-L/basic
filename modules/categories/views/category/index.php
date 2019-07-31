@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'description:ntext',
             [
-                'attribute' => 'parent_category',
+                'attribute' => 'parent_id',
                 'value' => 'parent.name'
             ],
 
