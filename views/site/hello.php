@@ -17,5 +17,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= HelloWidget::widget(['message' => 'Good morning', 'url' => 'http://yandex.ru']) ?>
+    <br>
+    <br>
+    <br>
+    <?= yii\jui\DatePicker::widget(['name' => 'attributeName']) ?>
 
 </div>
