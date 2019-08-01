@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d5124e35359c02413e62cf86f6f2db3",
+    "content-hash": "fbc41a77d0ee095f032ae5e4fd6320a2",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -144,6 +144,27 @@
             },
             "require": {
                 "bower-asset/jquery": ">=1.6"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "bower-asset/jstree",
+            "version": "3.3.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vakata/jstree.git",
+                "reference": "c9d7c1425f2272c5400536fa631eba8657522ecf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vakata/jstree/zipball/c9d7c1425f2272c5400536fa631eba8657522ecf",
+                "reference": "c9d7c1425f2272c5400536fa631eba8657522ecf"
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.9.1"
             },
             "type": "bower-asset",
             "license": [
@@ -758,6 +779,52 @@
                 "shim"
             ],
             "time": "2019-02-06T07:57:58+00:00"
+        },
+        {
+            "name": "thiagotalma/yii2-jstree",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thiagotalma/yii2-jstree-widget.git",
+                "reference": "68817a9c1c64218cfa606e9af7405a1c42f0bfd0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thiagotalma/yii2-jstree-widget/zipball/68817a9c1c64218cfa606e9af7405a1c42f0bfd0",
+                "reference": "68817a9c1c64218cfa606e9af7405a1c42f0bfd0",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jstree": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "talma\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Thiago Talma",
+                    "email": "thiago@thiagomt.com",
+                    "homepage": "http://www.thiagomt.com/"
+                }
+            ],
+            "description": "Widget for Yii Framework 2.0 to use JsTree",
+            "homepage": "https://github.com/thiagotalma/yii2-jstree-widget",
+            "keywords": [
+                "extension",
+                "form",
+                "jstree",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-09-02T03:05:49+00:00"
         },
         {
             "name": "yiisoft/yii2",
