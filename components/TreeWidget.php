@@ -34,7 +34,10 @@ class TreeWidget extends Widget
             if($o_child_item)
                 $text_child_ul = $this->listCreator($k_item);
 
-            return Html::tag('li', $a_item['name'].$text_child_ul);
+            // Creates link for parent item.
+            $html_parent_link = Html::a($a_item['name'], 'http://basic/categories/category/view?id='.$a_item['id']);
+
+            return Html::tag('li', $html_parent_link.$text_child_ul);
         }]);
     }
 
