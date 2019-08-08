@@ -39,7 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?= TreeWidget::widget(['o_model' => $searchModel]) ?>
+    <?= TreeWidget::widget([
+        'o_model' => $searchModel,
+        'text_url' => '/categories/category/view?id='
+    ]) ?>
 
 
 </div>

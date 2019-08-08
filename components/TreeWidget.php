@@ -18,6 +18,11 @@ class TreeWidget extends Widget
     public $o_model;
 
     /**
+     * @var string
+     */
+    public $text_url = '';
+
+    /**
      * @param $k_parent_id int Primary key of parent category.
      * @return string
      */
@@ -35,7 +40,7 @@ class TreeWidget extends Widget
                 $text_child_ul = $this->listCreator($k_item);
 
             // Creates link for parent item.
-            $html_parent_link = Html::a($a_item['name'], 'http://basic/categories/category/view?id='.$a_item['id']);
+            $html_parent_link = Html::a($a_item['name'], strtolower($this->text_url).$a_item['id']);
 
             return Html::tag('li', $html_parent_link.$text_child_ul);
         }]);
