@@ -23,31 +23,65 @@ class TreeWidget extends Widget
     public $text_url = '';
 
     /**
-     * @param $k_parent_id int Primary key of parent category.
+     * All items for tree structure.
+     *
+     * @var array
+     */
+    private $a_items_all = [];
+
+    /**
+     * @inheritDoc
+     */
+    public function init()
+    {
+        parent::init();
+        $this->a_items_all = $this->o_model->find()->asArray()->all();
+    }
+
+    /**
+     * @param null|string $k_parent_id Primary key of parent category.
      * @return string
      */
-    private function listCreator($k_parent_id = null)
+    private function _listCreator($k_parent_id = null)
     {
-        $a_parent_items = $this->o_model->find()->where(['parent_id' => $k_parent_id])->asArray()->all();
-        return Html::ul($a_parent_items, ['item' => function($a_item) {
-            // Checks if parent item has child.
-            $k_item = $a_item['id'];
-            $o_child_item = $this->o_model->find()->where(['parent_id' => $k_item])->one();
+        // Finds child items for $k_parent_id.
+        $a_child_items = $this->_getChild($k_parent_id);
 
-            // Creates child ul if it need.
-            $text_child_ul = '';
-            if($o_child_item)
-                $text_child_ul = $this->listCreator($k_item);
+        if($a_child_items)
+        {
+            return Html::ul($a_child_items, ['item' => function ($a_item) {
+                // Creates child ul.
+                $html_child_ul = $this->_listCreator($a_item['id']);
 
-            // Creates link for parent item.
-            $html_parent_link = Html::a($a_item['name'], strtolower($this->text_url).$a_item['id']);
+                // Creates link for parent item.
+                $html_parent_link = Html::a($a_item['name'], strtolower($this->text_url) . $a_item['id']);
 
-            return Html::tag('li', $html_parent_link.$text_child_ul);
-        }]);
+                return Html::tag('li', $html_parent_link . $html_child_ul);
+            }]);
+        }
+        return '';
     }
+
+    /**
+     * Child items for parent id.
+     *
+     * @param null|string $k_parent_id
+     * @return array
+     */
+    private function _getChild ($k_parent_id = null)
+    {
+        $a_child = [];
+        foreach ($this->a_items_all as $a_item)
+        {
+            if($a_item['parent_id'] == $k_parent_id)
+                $a_child[] = $a_item;
+        }
+        return $a_child;
+    }
+
 
     public function run()
     {
-        return $this->listCreator();
+        return $this->_listCreator();
     }
 }
