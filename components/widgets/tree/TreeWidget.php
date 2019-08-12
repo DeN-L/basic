@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components;
+namespace app\components\widgets\tree;
 
 use yii\base\Widget;
 use yii\db\ActiveRecord;
@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 /**
  * Class TreeWidget can be used for make tree of some parent-child items.
- * @package app\components
+ * @package app\components\widgets\tree
  */
 class TreeWidget extends Widget
 {
@@ -57,7 +57,7 @@ class TreeWidget extends Widget
                 $html_parent_link = Html::a($a_item['name'], strtolower($this->text_url) . $a_item['id']);
 
                 return Html::tag('li', $html_parent_link . $html_child_ul);
-            }]);
+            }, 'class' => 'tree-widget' ]);
         }
         return '';
     }
@@ -82,6 +82,7 @@ class TreeWidget extends Widget
 
     public function run()
     {
+        TreeAsset::register($this->view);
         return $this->_listCreator();
     }
 }
