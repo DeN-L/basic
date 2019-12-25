@@ -25,7 +25,7 @@ class HelloWidget extends Widget
         }
 
         if ($this->title === null) {
-            $this->title = 'Mega title';
+            $this->title = 'Mega title && new_branch';
         }
     }
 
